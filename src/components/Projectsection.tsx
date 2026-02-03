@@ -60,15 +60,14 @@ const projects = [
   },
 
   // ================= DATA =================
-  {
-    title: "Sales & Inventory Dashboard",
-    description:
-      "Power BI dashboard tracking sales trends, inventory health, and KPIs to support data-driven decisions.",
-    tech: ["Power BI", "SQL", "Business Metrics"],
-    image: "/powerbi-dashboard.jpg",
-    link: "#",
-    type: "data",
-  },
+{
+  title: "Sales & Inventory Dashboard",
+  type: "data",
+  slug: "sales-inventory-dashboard",
+  image: "/powerbi-dashboard.jpg",
+  tech: ["Power BI", "SQL", "Business Metrics"],
+}
+,
 
   // ================= WEB =================
   {
@@ -159,7 +158,16 @@ const ProjectsSection: React.FC = () => {
                       whileHover={{ y: -6 }}
                       className="rounded-xl overflow-hidden border border-blue-400/20 hover:border-cyan-400 transition-all duration-300"
                     >
-                      <Link href={project.link} target="_blank">
+                      <Link
+href={
+  project.type === "data" && project.slug
+    ? `/case-studies/${project.slug}`
+    : project.link || "#"
+}
+
+  target={project.type === "data" ? "_self" : "_blank"}
+>
+
                         <div className="h-44 relative">
                           <Image
                             src={project.image}
