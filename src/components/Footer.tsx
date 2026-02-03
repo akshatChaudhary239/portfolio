@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* About */}
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">John Doe</h3>
+            <h3 className="text-2xl font-bold gradient-text mb-4">Akshat chaudhary</h3>
             <p className="text-muted-foreground leading-relaxed">
               Crafting futuristic web applications and AI-powered solutions. Stay connected and explore the digital frontier with me.
             </p>
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
 
         {/* Footer Bottom */}
         <div className="border-t border-electric-blue/30 pt-6 text-center text-muted-foreground">
-          <p>© 2024 John Doe. All rights reserved. Crafted with futuristic tech and passion.</p>
+          <p>All rights reserved. Crafted with futuristic tech and passion.</p>
         </div>
       </div>
     </footer>

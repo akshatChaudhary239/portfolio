@@ -12,29 +12,29 @@ const ContactSection: React.FC = () => {
     {
       name: "Instagram",
       icon: Instagram,
-      url: "https://instagram.com",
-      handle: "@johndoe",
+      url: "https://www.instagram.com/_akkuchaudhary",
+      handle: "_akkuchaudhary",
       color: "from-blue-500 to-cyan-400",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/johndoe",
-      handle: "John Doe",
+      url: "https://www.linkedin.com/in/akshat-chaudhary",
+      handle: "Akshat chaudhary",
       color: "from-blue-700 to-blue-500",
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:john.doe@email.com",
-      handle: "john.doe@email.com",
+      url: "chaudharyakshat239@gmail.com",
+      handle: "Akshat",
       color: "from-cyan-500 to-blue-400",
     },
     {
       name: "Phone",
       icon: Phone,
-      url: "tel:+1234567890",
-      handle: "+1 (234) 567-8900",
+      url: "+91 9350637421",
+      handle: "Akshat",
       color: "from-blue-400 to-indigo-500",
     },
   ];
@@ -120,7 +120,7 @@ const ContactSection: React.FC = () => {
 
           <motion.a
             whileHover={{ scale: 1.05 }}
-            href="tel:+1234567890"
+            href="+91 9350637421"
             className="glass-strong px-8 py-5 rounded-xl text-lg font-semibold border border-cyber-blue/30 hover:border-cyber-blue hover:glow-blue flex items-center justify-center gap-2"
           >
             <Phone className="w-5 h-5" /> Let&apos;s Connect
@@ -135,7 +135,7 @@ const ContactSection: React.FC = () => {
           className="text-center mt-12 pt-8 border-t border-border"
         >
           <p className="text-muted-foreground">
-            © 2024 John Doe. Crafted with futuristic technology and passion.
+            Crafted with futuristic technology and passion.
           </p>
         </motion.div>
       </div>

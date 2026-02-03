@@ -30,7 +30,7 @@ const HeroScanner = () => {
           >
             <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse" />
             <span className="text-cyan-400 font-mono text-2xl sm:text-4xl tracking-widest">
-              PERSON DETECTED
+              SYSTEM ONLINE
             </span>
           </motion.div>
 
@@ -41,7 +41,7 @@ const HeroScanner = () => {
             transition={{ delay: 1.3, duration: 1 }}
             className="text-3xl sm:text-5xl font-extrabold leading-tight"
           >
-            <span className="text-cyan-400">Akshat</span>
+            Hi, I’m <span className="text-cyan-400">Akshat</span>
           </motion.h1>
 
           {/* Info Lines */}
@@ -51,28 +51,43 @@ const HeroScanner = () => {
             transition={{ delay: 1.8, staggerChildren: 0.3 }}
             className="space-y-3 font-mono text-base sm:text-lg text-cyan-300"
           >
-            <motion.p>▸ Profile: Full Stack Developer</motion.p>
-            <motion.p>▸ Specialization: AI / ML Engineer</motion.p>
-            <motion.p>▸ Status: Available for Work</motion.p>
-            <motion.p>▸ Experience: 3+ Years Coding</motion.p>
-            <motion.p>▸ Location: India</motion.p>
+            <motion.p>
+              ▸ Role: Data Analyst / Dashboard Engineer
+            </motion.p>
+            <motion.p>
+              ▸ Focus: Business Intelligence & Data Visualization
+            </motion.p>
+            <motion.p>
+              ▸ What I Do: Turn raw data into clear, decision-ready dashboards
+            </motion.p>
+            <motion.p>
+              ▸ Availability: Open for Freelance & Work
+            </motion.p>
+            <motion.p>
+              ▸ Location: India
+            </motion.p>
           </motion.div>
 
           {/* Futuristic badges */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6">
-            {["React.js", "Next.js", "Node.js", "MongoDB", "TensorFlow", "Docker"].map(
-              (skill, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 2 + i * 0.2 }}
-                  className="border border-cyan-400/50 rounded-lg px-3 py-2 text-sm sm:text-base text-cyan-300 font-mono text-center shadow-[0_0_10px_rgba(0,255,255,0.4)]"
-                >
-                  {skill}
-                </motion.div>
-              )
-            )}
+            {[
+              "Power BI",
+              "SQL",
+              "Data Modeling",
+              "Web Dashboards",
+              "React",
+              "Supabase",
+            ].map((skill, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2 + i * 0.2 }}
+                className="border border-cyan-400/50 rounded-lg px-3 py-2 text-sm sm:text-base text-cyan-300 font-mono text-center shadow-[0_0_10px_rgba(0,255,255,0.4)]"
+              >
+                {skill}
+              </motion.div>
+            ))}
           </div>
         </div>
 

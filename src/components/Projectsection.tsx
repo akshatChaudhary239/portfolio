@@ -1,171 +1,205 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import {
+  Database,
+  LayoutDashboard,
+  Code2,
+  X,
+  Sparkles,
+} from "lucide-react";
+
+type Category = "data" | "admin" | "web" | null;
+
+const categories = [
+  {
+    id: "admin",
+    title: "Admin Dashboards & Systems",
+    description:
+      "Advanced internal tools, decision systems, and data-driven platforms like Style.AI.",
+    icon: LayoutDashboard,
+  },
+  {
+    id: "data",
+    title: "Data & Analytics",
+    description:
+      "Power BI dashboards, Excel decision systems, and SQL-based analysis for business insights.",
+    icon: Database,
+  },
+  {
+    id: "web",
+    title: "Full-Stack Applications",
+    description:
+      "End-to-end web applications including e-commerce platforms and client systems.",
+    icon: Code2,
+  },
+];
+
+const projects = [
+  // ================= ADMIN / FLAGSHIP =================
+  {
+    title: "Style.AI — Data-Driven Recommendation System",
+    description:
+      "A scalable, data-driven recommendation and dashboard system built with structured data models and ML-ready architecture.",
+    tech: ["SQL", "Data Modeling", "React", "Supabase"],
+    image: "/styleai.jpg",
+    link: "https://style-ai-smoky.vercel.app",
+    type: "admin",
+  },
+  {
+    title: "Recycling Production Line Manager Selection System",
+    description:
+      "Decision-support system using weighted criteria, structured scoring, and analytical logic to rank candidates.",
+    tech: ["Excel", "Decision Modeling", "Data Analysis"],
+    image: "/recycling-dashboard.jpg",
+    link: "#", // add after deployment
+    type: "admin",
+  },
+
+  // ================= DATA =================
+  {
+    title: "Sales & Inventory Dashboard",
+    description:
+      "Power BI dashboard tracking sales trends, inventory health, and KPIs to support data-driven decisions.",
+    tech: ["Power BI", "SQL", "Business Metrics"],
+    image: "/powerbi-dashboard.jpg",
+    link: "#",
+    type: "data",
+  },
+
+  // ================= WEB =================
+  {
+    title: "Student Course & Payment Management System",
+    description:
+      "Web-based platform with structured databases for managing enrollments, payments, and operational data.",
+    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+    image: "/thecybervision.jpg",
+    link: "https://cybervision-rajputsundrams-projects.vercel.app",
+    type: "web",
+  },
+  {
+    title: "Business E-commerce Platform",
+    description:
+      "E-commerce website with inventory handling, order tracking, and backend data management.",
+    tech: ["Next.js", "PostgreSQL", "Tailwind CSS"],
+    image: "/dreamknot.jpg",
+    link: "https://dreamknotcreations.com",
+    type: "web",
+  },
+];
 
 const ProjectsSection: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const projects = [
-    {
-      title: "Student Course Management",
-      description:
-        "A comprehensive platform for managing student courses and payments with modern UI/UX.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "/thecybervision.jpg",
-      category: "Web Application",
-      status: "Live",
-      link: "https://cybervision-rajputsundrams-projects.vercel.app ", // ✅ Add your link here
-    },
-    
-    {
-      title: "Carpet Company Website",
-      description:
-        "E-commerce platform for a carpet company with inventory management and online ordering.",
-      tech: ["Next.js", "Tailwind CSS", "PostgreSQL"],
-      image: "/dreamknot.jpg",
-      category: "E-commerce",
-      status: "Live",
-      link: "https://dreamknotcreations.com",
-    },
-    
-    {
-      title: "Digital agency",
-      description:
-        "Collaborative project management platform with real-time updates and team features.",
-      tech: ["Vue.js", "Express", "Socket.io", "Redis"],
-      image: "/bytebloom-1.jpg",
-      category: "Productivity",
-      status: "Live",
-      link: "https://bytebloom3-asoo.vercel.app",
-    },
-    {
-      title: "Online-book reader",
-      description:
-        "Data visualization platform for weather patterns using machine learning predictions.",
-      tech: ["React", "D3.js", "Python", "AWS"],
-      image: "/bookshala.jpg",
-      category: "Data Science",
-      status: "Live",
-      link: "https://bookshala-2.vercel.app ",
-    },
-    
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" as const },
-    },
-  };
+  const [activeCategory, setActiveCategory] = useState<Category>(null);
 
   return (
     <section className="py-24 px-6 bg-[#0b0c10] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto" ref={ref}>
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-7xl font-mono md:text-8xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-            Featured Projects
+        <div className="text-center mb-20">
+          <h2 className="text-7xl md:text-8xl font-mono mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+            Projects
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-mono leading-relaxed">
-            A showcase of my latest work spanning web development, AI/ML, and
-            innovative digital solutions.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-mono">
+            A curated selection of data-driven systems, dashboards, and full-stack
+            applications solving real business problems.
           </p>
-        </motion.div>
+          <p className="text-3xl mt-16 font-bold text-muted-foreground max-w-3xl mx-auto uppercase font-mono">
+ select the niche you wanna see projects of - 
+          </p>
+        </div>
 
-        {/* Projects Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {projects.map((project) => (
+        {/* CATEGORY CARDS */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {categories.map((cat) => {
+            const Icon = cat.icon;
+            return (
+              <motion.div
+                key={cat.id}
+                whileHover={{ y: -8, scale: 1.02 }}
+                onClick={() => setActiveCategory(cat.id as Category)}
+                className="cursor-pointer glass-frosted p-8 rounded-xl border border-cyan-400/30 hover:shadow-[0_0_25px_rgba(0,255,255,0.6)] transition-all duration-300"
+              >
+                <Icon className="w-12 h-12 text-cyan-400 mb-4" />
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {cat.title}
+                </h3>
+                <p className="text-muted-foreground">{cat.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* EXPANDED PROJECT VIEW */}
+        <AnimatePresence>
+          {activeCategory && (
             <motion.div
-              key={project.title}
-              variants={itemVariants}
-              whileHover={{ y: -10, scale: 1.03 }}
-              className="glass-frosted rounded-xl overflow-hidden border border-blue-400/20 hover:border-cyan-400 hover:shadow-[0_0_25px_rgb(0,255,255)] transition-all duration-300"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.4 }}
+              className="glass-frosted p-10 rounded-xl border border-cyan-400/40 relative"
             >
-              <Link href={project.link} target="_blank">
-                {/* Project Image */}
-                <div className="h-48 relative overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10]/50 to-transparent" />
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveCategory(null)}
+                className="absolute top-6 right-6 text-cyan-400 hover:text-white transition"
+              >
+                <X size={28} />
+              </button>
 
-                  {/* Status Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span
-                      className={`glass px-3 py-1 rounded-full text-xs font-medium ${
-                        project.status === "Live"
-                          ? "text-green-400 border-green-400/30"
-                          : project.status === "In Progress"
-                          ? "text-yellow-400 border-yellow-400/30"
-                          : "text-blue-400 border-blue-400/30"
-                      }`}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projects
+                  .filter((p) => p.type === activeCategory)
+                  .map((project) => (
+                    <motion.div
+                      key={project.title}
+                      whileHover={{ y: -6 }}
+                      className="rounded-xl overflow-hidden border border-blue-400/20 hover:border-cyan-400 transition-all duration-300"
                     >
-                      {project.status}
-                    </span>
-                  </div>
+                      <Link href={project.link} target="_blank">
+                        <div className="h-44 relative">
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        </div>
 
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="glass px-3 py-1 rounded-full text-xs text-blue-400">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
+                        <div className="p-6">
+                          <div className="flex justify-between items-start mb-3">
+                            <h4 className="text-lg font-bold text-white">
+                              {project.title}
+                            </h4>
+                            <Sparkles className="w-5 h-5 text-cyan-400 animate-float" />
+                          </div>
 
-                {/* Project Content */}
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                      {project.title}
-                    </h3>
-                    <Sparkles className="w-5 h-5 text-cyan-400 animate-float" />
-                  </div>
+                          <p className="text-sm text-muted-foreground mb-4">
+                            {project.description}
+                          </p>
 
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="glass px-2 py-1 rounded text-xs text-cyan-300 border border-blue-400/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+                          <div className="flex flex-wrap gap-2">
+                            {project.tech.map((t) => (
+                              <span
+                                key={t}
+                                className="text-xs px-2 py-1 border border-cyan-400/30 rounded text-cyan-300"
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+              </div>
             </motion.div>
-          ))}
-        </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

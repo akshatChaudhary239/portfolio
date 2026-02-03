@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Brain, Code2, Database, Rocket } from "lucide-react";
+import { BarChart3, Code2, Database, Briefcase } from "lucide-react";
 
 const AboutSection: React.FC = () => {
   const ref = useRef(null);
@@ -10,24 +10,28 @@ const AboutSection: React.FC = () => {
 
   const skills = [
     {
-      icon: Code2,
-      title: "Full Stack Development",
-      description: "Building scalable web applications with modern tech.",
-    },
-    {
-      icon: Brain,
-      title: "AI/ML Engineering",
-      description: "Exploring machine learning and AI-driven solutions.",
+      icon: BarChart3,
+      title: "Data Analysis & Dashboards",
+      description:
+        "Designing clear, decision-ready dashboards using Power BI, SQL, and structured business metrics.",
     },
     {
       icon: Database,
-      title: "Backend Systems",
-      description: "Designing robust server architectures and APIs.",
+      title: "Data Modeling & Backend Logic",
+      description:
+        "Building reliable data models, handling structured data, and creating systems that scale cleanly.",
     },
     {
-      icon: Rocket,
-      title: "Innovation",
-      description: "Pushing the boundaries with futuristic tech ideas.",
+      icon: Code2,
+      title: "Web-Based Dashboard Systems",
+      description:
+        "Developing interactive dashboards and internal tools using modern full-stack technologies.",
+    },
+    {
+      icon: Briefcase,
+      title: "Business-Focused Solutions",
+      description:
+        "Understanding business problems and translating raw data into insights that actually drive action.",
     },
   ];
 
@@ -49,13 +53,17 @@ const AboutSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-9xl font-mono font-bold mb-6 gradient-text tracking-wide">
+          <h2 className="text-5xl mt-10 md:text-9xl font-mono font-bold mb-6 gradient-text tracking-wide">
             About Me
           </h2>
+
           <p className="text-lg font-mono text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I&apos;m a futuristic Full Stack Developer exploring AI/ML possibilities. I
-            combine creative design with cutting-edge technology to build scalable,
-            intelligent solutions that feel straight out of tomorrow.
+            I work at the intersection of data and technology, helping businesses
+            make sense of their numbers through clear dashboards and data-driven
+            systems.
+            <br />
+            <br />
+
           </p>
         </motion.div>
 

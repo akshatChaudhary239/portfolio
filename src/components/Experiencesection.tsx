@@ -8,36 +8,37 @@ const ExperienceSection: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const experiences = [
-    {
-      company: "CyberVision",
-      position: "Full Stack Developer Intern",
-      period: "2023 - Present",
-      description:
-        "Developed a comprehensive student course and payment management website using modern technologies.",
-      achievements: [
-        "Built responsive course management system",
-        "Integrated secure payment processing",
-        "Implemented user authentication & authorization",
-        "Optimized database queries for performance",
-      ],
-      tech: ["React", "Node.js", "MongoDB", "Stripe API"],
-    },
-    {
-      company: "Freelance Projects",
-      position: "Web Developer",
-      period: "2022 - Present",
-      description:
-        "Created custom websites for clients including e-commerce and business solutions.",
-      achievements: [
-        "Delivered 15+ successful projects",
-        "Specialized in carpet company e-commerce platform",
-        "Maintained 100% client satisfaction",
-        "Implemented SEO best practices",
-      ],
-      tech: ["Next.js", "React", "Tailwind CSS", "WordPress"],
-    },
-  ];
+const experiences = [
+  {
+    company: "CyberVision",
+    position: "Data-Driven Full Stack Developer Intern",
+    period: "2023 - Present",
+    description:
+      "Worked on building data-centric web systems involving user data, payments, and operational metrics, with a focus on structured data handling and performance.",
+    achievements: [
+      "Designed and managed structured databases for student, course, and payment data",
+      "Built internal admin views to track enrollments, payments, and user activity",
+      "Implemented authentication flows and role-based access for data security",
+      "Optimized database queries and backend logic for faster data retrieval",
+    ],
+    tech: ["SQL", "MongoDB", "React", "Node.js", "Stripe API"],
+  },
+  {
+    company: "Independent Projects & Freelance Work",
+    position: "Web & Dashboard Developer",
+    period: "2022 - Present",
+    description:
+      "Delivered custom web solutions with an emphasis on dashboards, business data visibility, and performance tracking for small businesses.",
+    achievements: [
+      "Built data-backed admin dashboards for monitoring sales and operations",
+      "Worked with client data to create structured reports and visual summaries",
+      "Designed scalable systems that could later support analytics and reporting",
+      "Collaborated directly with clients to translate business needs into data views",
+    ],
+    tech: ["Power BI", "SQL", "React", "Next.js", "Tailwind CSS"],
+  },
+];
+
 
   return (
     <section className="py-24 px-6 bg-[#0b0c10] relative overflow-hidden">
