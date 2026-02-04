@@ -34,9 +34,9 @@ const caseStudyData: Record<string, CaseStudy> = {
     ],
     tools: ["Power BI", "SQL", "Excel"],
     images: [
-      "/powerbi-dashboard.jpg",
-      "/powerbi-filters.jpg",
-      "/powerbi-trends.jpg",
+      "/power bi project.jpeg",
+      "/power bi schema.jpeg",
+      
     ],
     insights: [
       "Identified top-performing products and slow-moving inventory",

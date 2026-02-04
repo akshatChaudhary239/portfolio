@@ -45,7 +45,7 @@ const projects = [
     description:
       "A scalable, data-driven recommendation and dashboard system built with structured data models and ML-ready architecture.",
     tech: ["SQL", "Data Modeling", "React", "Supabase"],
-    image: "/styleai.jpg",
+    image: "/style.ai photo.jpeg",
     link: "https://style-ai-smoky.vercel.app",
     type: "admin",
   },
@@ -54,7 +54,7 @@ const projects = [
     description:
       "Decision-support system using weighted criteria, structured scoring, and analytical logic to rank candidates.",
     tech: ["Excel", "Decision Modeling", "Data Analysis"],
-    image: "/recycling-dashboard.jpg",
+    image: "/production.jpeg",
     link: "#", // add after deployment
     type: "admin",
   },
@@ -64,7 +64,7 @@ const projects = [
   title: "Sales & Inventory Dashboard",
   type: "data",
   slug: "sales-inventory-dashboard",
-  image: "/powerbi-dashboard.jpg",
+  image: "/excel-summary.jpeg",
   tech: ["Power BI", "SQL", "Business Metrics"],
 }
 ,
@@ -86,6 +86,24 @@ const projects = [
     tech: ["Next.js", "PostgreSQL", "Tailwind CSS"],
     image: "/dreamknot.jpg",
     link: "https://dreamknotcreations.com",
+    type: "web",
+  },
+  {
+    title: "Online-business agency",
+    description:
+      "Services agency company website with connection features and cool effects.",
+    tech: ["Next.js", "PostgreSQL", "Tailwind CSS"],
+    image: "/bytebloom-1.jpg",
+    link: "https://bytebloom3-asoo.vercel.app",
+    type: "web",
+  },
+  {
+    title: "E-book reader",
+    description:
+      "Learning website with multiple book selection features and a lot of fun books to read.",
+    tech: ["Next.js", "PostgreSQL", "Tailwind CSS"],
+    image: "/bookshala.jpg",
+    link: "https://bookshala-2.vercel.app",
     type: "web",
   },
 ];
