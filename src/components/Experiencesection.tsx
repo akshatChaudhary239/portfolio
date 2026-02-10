@@ -8,128 +8,112 @@ const ExperienceSection: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-const experiences = [
-  {
-    company: "CyberVision",
-    position: "Data-Driven Full Stack Developer Intern",
-    period: "2023 - Present",
-    description:
-      "Worked on building data-centric web systems involving user data, payments, and operational metrics, with a focus on structured data handling and performance.",
-    achievements: [
-      "Designed and managed structured databases for student, course, and payment data",
-      "Built internal admin views to track enrollments, payments, and user activity",
-      "Implemented authentication flows and role-based access for data security",
-      "Optimized database queries and backend logic for faster data retrieval",
-    ],
-    tech: ["SQL", "MongoDB", "React", "Node.js", "Stripe API"],
-  },
-  {
-    company: "Independent Projects & Freelance Work",
-    position: "Web & Dashboard Developer",
-    period: "2022 - Present",
-    description:
-      "Delivered custom web solutions with an emphasis on dashboards, business data visibility, and performance tracking for small businesses.",
-    achievements: [
-      "Built data-backed admin dashboards for monitoring sales and operations",
-      "Worked with client data to create structured reports and visual summaries",
-      "Designed scalable systems that could later support analytics and reporting",
-      "Collaborated directly with clients to translate business needs into data views",
-    ],
-    tech: ["Power BI", "SQL", "React", "Next.js", "Tailwind CSS"],
-  },
-];
-
+  const experiences = [
+    {
+      company: "The Cyber Vision",
+      position: "Data-Oriented Full Stack Developer Intern",
+      period: "1 Jan 2025 – 1 Apr 2025",
+      description:
+        "Worked on data-centric web systems supporting internal operations, user management, and payment workflows, with emphasis on structured data handling and reporting readiness.",
+      achievements: [
+        "Designed and maintained structured databases for users, courses, and payment records",
+        "Built internal admin dashboards to monitor enrollments, transactions, and activity trends",
+        "Handled data validation, access control, and role-based permissions for operational data",
+        "Optimized backend queries and APIs for faster and more reliable data retrieval",
+      ],
+      tech: ["SQL", "MongoDB", "React", "Node.js", "Stripe API"],
+    },
+    {
+      company: "DreamKnot Creations",
+      position: "Business Data Analyst Intern",
+      period: "1 Aug 2025 – 31 Jan 2026",
+      description:
+        "Supported a small manufacturing business by organizing sales data, improving data structure, and generating simple reports to aid business decisions.",
+      achievements: [
+        "Worked with sales and revenue data exports to clean, structure, and validate records",
+        "Created basic monthly reports highlighting revenue trends and product performance",
+        "Helped design simple data schemas for storing orders, customers, and sales history",
+        "Collaborated directly with business owners to understand data needs and reporting gaps",
+      ],
+      tech: ["Excel", "Power BI", "SQL", "Python (Basics)"],
+    },
+  ];
 
   return (
-    <section className="py-24 px-6 bg-[#0b0c10] relative overflow-hidden">
-      <div className="max-w-6xl mx-auto" ref={ref}>
+    <section className="py-24 px-6 bg-[#0b0c10]">
+      <div className="max-w-5xl mx-auto" ref={ref}>
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+          <h2 className="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
             Work Experience
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            My professional journey in software development and projects shaping my expertise.
+          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
+            Hands-on experience working with real-world systems, business data, and operational reporting.
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-400/50 to-cyan-400/50"></div>
-
+        <div className="space-y-12">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.company}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: index * 0.3 }}
-              className={`relative mb-20 ${
-                index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:ml-auto"
-              } md:w-1/2 pl-12 md:pl-0`}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="glass-frosted p-8 rounded-xl border border-blue-500/30 hover:border-cyan-400 hover:shadow-[0_0_25px_rgb(0,255,255)] transition-all duration-300"
             >
-              {/* Timeline Dot */}
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.3 + 0.2 }}
-                className="absolute left-1/2 transform -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full shadow-[0_0_20px_rgb(0,255,255)] border-4 border-[#0b0c10]"
-              />
-
-              {/* Card */}
-              <motion.div
-                whileHover={{ y: -5, boxShadow: "0 0 20px rgba(0,255,255,0.5)" }}
-                className="glass-frosted p-8 rounded-xl border border-blue-500/30 hover:border-cyan-400 hover:shadow-[0_0_25px_rgb(0,255,255)] group transition-all duration-300"
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <motion.div
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="mt-1"
-                  >
-                    <Building className="w-8 h-8 text-blue-400" />
-                  </motion.div>
-
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">{exp.position}</h3>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-2">{exp.company}</h4>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      <span>{exp.period}</span>
-                    </div>
+              <div className="flex items-start gap-4 mb-4">
+                <Building className="w-8 h-8 text-blue-400 mt-1" />
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-1">
+                    {exp.position}
+                  </h3>
+                  <h4 className="text-lg font-semibold text-blue-400">
+                    {exp.company}
+                  </h4>
+                  <div className="flex items-center gap-2 text-muted-foreground mt-1">
+                    <Calendar className="w-4 h-4" />
+                    <span>{exp.period}</span>
                   </div>
                 </div>
+              </div>
 
-                <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                {exp.description}
+              </p>
 
-                <div className="mb-4">
-                  <h5 className="font-semibold mb-2 text-white">Key Achievements:</h5>
-                  <ul className="space-y-1">
-                    {exp.achievements.map((ach, i) => (
-                      <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                        {ach}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {exp.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="glass px-3 py-1 rounded-full text-sm text-blue-400 border border-blue-400/30"
+              <div className="mb-4">
+                <h5 className="font-semibold mb-2 text-white">
+                  Key Contributions:
+                </h5>
+                <ul className="space-y-1">
+                  {exp.achievements.map((ach, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-2 text-muted-foreground"
                     >
-                      {tech}
-                    </span>
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                      {ach}
+                    </li>
                   ))}
-                </div>
-              </motion.div>
+                </ul>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {exp.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="glass px-3 py-1 rounded-full text-sm text-blue-400 border border-blue-400/30"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
