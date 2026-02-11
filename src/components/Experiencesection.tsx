@@ -125,7 +125,7 @@ const ExperienceSection: React.FC = () => {
                   {exp.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="glass px-3 py-1 rounded-full text-sm text-blue-400 border border-blue-400/30"
+                      className="glass px-3 py-2 rounded-full text-sm text-blue-400 border border-blue-400/30"
                     >
                       {tech}
                     </span>
